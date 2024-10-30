@@ -2,7 +2,7 @@ import pygame
 from TiledObject import TiledObject
 
 class AnimatedTiledObject(TiledObject):
-    def __init__(self, screen, frames, pos, animation_speed=5, show_hitbox=False):
+    def __init__(self, screen, frames, pos, animation_speed=10, show_hitbox=False):
         first_frame = frames[0].convert_alpha()
         super().__init__(screen, first_frame, pos, show_hitbox)
 
@@ -18,7 +18,7 @@ class AnimatedTiledObject(TiledObject):
         self.shaking = False
         self.shake_direction = -1
         self.shake_speed = 2
-        self.max_shake_offset = -20
+        self.max_shake_offset = -10
 
     def animate(self):
         if self.animating:
@@ -50,7 +50,8 @@ class AnimatedTiledObject(TiledObject):
         super().place()
 
     def check_collision(self, other_rect):
-        if self.active and super().check_collision(other_rect):
+        bottom_hitbox = pygame.Rect(self.hitbox.left, self.hitbox.bottom - 5, self.hitbox.width, 5)
+        if self.active and bottom_hitbox.colliderect(other_rect):
             self.animating = True
             self.shaking = True
             self.active = True

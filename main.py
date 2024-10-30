@@ -28,6 +28,7 @@ block_tile = atlas.get_tile(2, 0, zoom_factor)
 
 block_obj4 = TiledObject(screen, block_tile, (200 + 150, 420 - 100), show_hitbox=show_hitbox)
 block_obj5 = TiledObject(screen, block_tile, (600, 600-3*tile_size), show_hitbox=show_hitbox)
+block_obj7 = TiledObject(screen, block_tile, (600, 600-4*tile_size), show_hitbox=show_hitbox)
 block_obj6 = TiledObject(screen, block_tile, (264 + 150, 420 - 100), show_hitbox=show_hitbox)
 
 item_block_tiles = [atlas.get_tile(3, 0, zoom_factor), atlas.get_tile(4, 0, zoom_factor),
@@ -36,7 +37,7 @@ item_block_tiles = [atlas.get_tile(3, 0, zoom_factor), atlas.get_tile(4, 0, zoom
 # testando objetos animados
 item_block_obj = AnimatedTiledObject(screen, item_block_tiles, (232 + 150, 420 - 100), animation_speed=5, show_hitbox=show_hitbox)
 
-obstacles = ground_objs + [item_block_obj, block_obj4, block_obj5, block_obj6]
+obstacles = ground_objs + [item_block_obj, block_obj4, block_obj5, block_obj6, block_obj7]
 animated_objs = [item_block_obj]
 
 pygame.mixer.init()
