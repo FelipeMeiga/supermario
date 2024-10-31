@@ -35,7 +35,8 @@ item_block_tiles = [atlas.get_tile(3, 0, zoom_factor), atlas.get_tile(4, 0, zoom
                     atlas.get_tile(5, 0, zoom_factor), atlas.get_tile(6, 0, zoom_factor)]
 
 # testando objetos animados
-item_block_obj = AnimatedTiledObject(screen, item_block_tiles, (232 + 150, 420 - 100), animation_speed=5, show_hitbox=show_hitbox)
+sound = pygame.mixer.Sound("./sound/blockhit.wav")
+item_block_obj = AnimatedTiledObject(screen, item_block_tiles, (232 + 150, 420 - 100), sound, animation_speed=5, show_hitbox=show_hitbox)
 
 obstacles = ground_objs + [item_block_obj, block_obj4, block_obj5, block_obj6, block_obj7]
 animated_objs = [item_block_obj]

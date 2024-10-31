@@ -2,7 +2,7 @@ import pygame
 from TiledObject import TiledObject
 
 class AnimatedTiledObject(TiledObject):
-    def __init__(self, screen, frames, pos, animation_speed=10, show_hitbox=False):
+    def __init__(self, screen, frames, pos, sound, animation_speed=10, show_hitbox=False):
         first_frame = frames[0].convert_alpha()
         super().__init__(screen, first_frame, pos, show_hitbox)
 
@@ -19,6 +19,9 @@ class AnimatedTiledObject(TiledObject):
         self.shake_direction = -1
         self.shake_speed = 2
         self.max_shake_offset = -10
+
+        self.is_playing = False
+        self.sound = sound
 
     def animate(self):
         if self.animating:
@@ -45,8 +48,14 @@ class AnimatedTiledObject(TiledObject):
                 self.shake_offset = 0
                 self.shake_direction = -1
 
+    def play_sound(self):
+        if self.is_playing:
+            self.sound.play()
+            self.is_playing = False
+
     def place(self):
         self.animate()
+        self.play_sound()
         super().place()
 
     def check_collision(self, other_rect):
@@ -55,5 +64,6 @@ class AnimatedTiledObject(TiledObject):
             self.animating = True
             self.shaking = True
             self.active = True
+            self.is_playing = True
             return True
         return False
