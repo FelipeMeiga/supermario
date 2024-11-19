@@ -92,12 +92,15 @@ class Player:
             if not self.facing_right:
                 self.image = pygame.transform.flip(self.image, True, False)
 
-    def draw(self):
-        self.screen.blit(self.image, self.rect)
+    def draw(self, camera): 
+        screen_pos = self.rect.move(-camera.camera.left, -camera.camera.top)
+        self.screen.blit(self.image, screen_pos)
         if self.show_hitbox:
-            pygame.draw.rect(self.screen, (0, 255, 0), self.hitbox, 1)
+            hitbox_screen_pos = self.hitbox.move(-camera.camera.left, -camera.camera.top)
+            pygame.draw.rect(self.screen, (0, 255, 0), hitbox_screen_pos, 1)
 
-    def update(self, keys, obstacles):
+    def update(self, keys, obstacles, camera):
         self.move(keys, obstacles)
         self.animate()
-        self.draw()
+        self.draw(camera)
+        

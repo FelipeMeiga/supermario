@@ -3,6 +3,7 @@ from Tile import Tile
 from TiledObject import TiledObject
 from Player import Player
 from AnimatedTiledObject import AnimatedTiledObject
+from Camera import Camera
 import os
 
 pygame.init()
@@ -23,6 +24,7 @@ ground_objs2 = [TiledObject(screen, ground_tile, (i * tile_size, screen_height -
                for i in range(int(screen_width / tile_size) + 1)]
 
 player = Player(screen, "./images/player_images", frame_size=(48, 48), animation_speed=10, show_hitbox=show_hitbox)
+camera = Camera(2000, 600, screen_width, screen_height)
 
 block_tile = atlas.get_tile(2, 0, zoom_factor)
 
@@ -72,15 +74,17 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+    camera.update(player)
+
     screen.fill((100, 100, 230))
 
     for obj in obstacles:
-        obj.place()
+        obj.place(camera)
         
     for obj in ground_objs2:
-        obj.place()
+        obj.place(camera)
 
-    player.update(keys, obstacles)
+    player.update(keys, obstacles, camera)
 
     pygame.display.flip()
     clock.tick(100)
