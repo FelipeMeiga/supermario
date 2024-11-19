@@ -12,12 +12,10 @@ class Camera:
         return entity.hitbox.move(-self.camera.left, -self.camera.top)
 
     def update(self, target):
-        x = -target.rect.centerx + int(self.screen_width / 2)
-        y = -target.rect.centery + int(self.screen_height / 2)
+        x = target.rect.centerx - int(self.screen_width / 2)
+        y = target.rect.centery - int(self.screen_height / 2)
 
-        x = min(0, x)
-        y = min(0, y)
-        x = max(-(self.width - self.screen_width), x)
-        y = max(-(self.height - self.screen_height), y)
+        x = max(0, min(x, self.width - self.screen_width))
+        y = max(0, min(y, self.height - self.screen_height))
 
         self.camera = pygame.Rect(x, y, self.width, self.height)
