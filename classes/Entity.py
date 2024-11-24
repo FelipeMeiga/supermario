@@ -1,5 +1,5 @@
 import pygame as pg
-from Consts import FALL_MULTIPLIER
+from classes.Consts import FALL_MULTIPLIER
 
 class Entity(object):
     def __init__(self):

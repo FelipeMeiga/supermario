@@ -1,6 +1,6 @@
 import pygame as pg
 
-from Consts import *
+from classes.Consts import *
 
 class Fireball(object):
     def __init__(self, x_pos, y_pos, move_direction: bool):

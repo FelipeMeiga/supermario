@@ -1,7 +1,7 @@
 import pygame as pg
 
-from Consts import *
-from Text import Text
+from classes.Consts import *
+from classes.Text import Text
 
 class MainMenu(object):
     def __init__(self):

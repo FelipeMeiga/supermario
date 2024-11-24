@@ -1,6 +1,5 @@
 import pygame as pg
 
-
 class BGObject(object):
     def __init__(self, x, y, image):
         self.rect = pg.Rect(x, y, 32, 32)

@@ -1,7 +1,7 @@
 import pygame as pg
 
-from LoadingMenu import LoadingMenu
-from MainMenu import MainMenu
+from classes.LoadingMenu import LoadingMenu
+from classes.MainMenu import MainMenu
 
 class MenuManager(object):
     def __init__(self, core):

@@ -1,5 +1,5 @@
 WINDOW_W = 800
-WINDOW_H = 448
+WINDOW_H = 440
 FPS = 100
 
 # Player physics

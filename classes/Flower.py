@@ -1,6 +1,6 @@
 import pygame as pg
 
-from Entity import Entity
+from classes.Entity import Entity
 
 class Flower(Entity):
     def __init__(self, x_pos, y_pos):

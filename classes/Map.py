@@ -1,24 +1,23 @@
 import pygame as pg
 from pytmx.util_pygame import load_pygame
 
-from GameUI import GameUI
-from BGObject import BGObject
-from Camera import Camera
-from Event import Event
-from Flag import Flag
-from Consts import *
-from Platform import Platform
-from Player import Player
-from Goomba import Goomba
-from Mushroom import Mushroom
-from Flower import Flower
-from Koopa import Koopa
-from Tube import Tube
-from PlatformDebris import PlatformDebris
-from CoinDebris import CoinDebris
-from Fireball import Fireball
-from Text import Text
-
+from classes.GameUI import GameUI
+from classes.BGObject import BGObject
+from classes.Camera import Camera
+from classes.Event import Event
+from classes.Flag import Flag
+from classes.Consts import *
+from classes.Platform import Platform
+from classes.Player import Player
+from classes.Goomba import Goomba
+from classes.Mushroom import Mushroom
+from classes.Flower import Flower
+from classes.Koopa import Koopa
+from classes.Tube import Tube
+from classes.PlatformDebris import PlatformDebris
+from classes.CoinDebris import CoinDebris
+from classes.Fireball import Fireball
+from classes.Text import Text
 
 class Map(object):
     def __init__(self, world_num):

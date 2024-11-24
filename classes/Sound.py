@@ -1,6 +1,5 @@
 import pygame as pg
 
-
 class Sound(object):
     def __init__(self):
         self.sounds = {}

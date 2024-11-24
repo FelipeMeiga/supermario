@@ -1,7 +1,7 @@
 import pygame as pg
 
-from Entity import Entity
-from Consts import *
+from classes.Entity import Entity
+from classes.Consts import *
 
 class Mushroom(Entity):
     def __init__(self, x_pos, y_pos, move_direction):

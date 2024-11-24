@@ -1,7 +1,6 @@
 import pygame as pg
 
-from Consts import *
-
+from classes.Consts import *
 
 class Event(object):
     def __init__(self):
