@@ -29,6 +29,7 @@ class Core(object):
         self.keyU = False
         self.keyD = False
         self.keyShift = False
+        self.keyReset = False
 
     def main_loop(self):
         while self.run:
@@ -50,16 +51,19 @@ class Core(object):
                 self.run = False
 
             elif e.type == KEYDOWN:
-                if e.key == K_RIGHT:
+                if e.key == K_RIGHT or e.key == K_d:
                     self.keyR = True
-                elif e.key == K_LEFT:
+                elif e.key == K_LEFT or e.key == K_a:
                     self.keyL = True
-                elif e.key == K_DOWN:
+                elif e.key == K_DOWN or e.key == K_s:
                     self.keyD = True
-                elif e.key == K_UP:
+                elif e.key == K_UP or e.key == K_w or e.key == K_SPACE:
                     self.keyU = True
                 elif e.key == K_LSHIFT:
                     self.keyShift = True
+                elif e.key == K_r:
+                    self.keyReset = True
+                    self.oWorld.reset(1)
 
             elif e.type == KEYUP:
                 if e.key == K_RIGHT or e.key == K_d:
@@ -72,6 +76,8 @@ class Core(object):
                     self.keyU = False
                 elif e.key == K_LSHIFT:
                     self.keyShift = False
+                elif e.key == K_r:
+                    self.keyReset = False
 
     def input_menu(self):
         for e in pg.event.get():
